@@ -1,18 +1,29 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminArticleController;
+use App\Http\Controllers\ForEveryone\AuthorizationController;
+use App\Http\Controllers\ForEveryone\IndexController;
+use App\Http\Controllers\News\ArticleController;
+use App\Http\Controllers\News\NewsCategoryController;
+use App\Http\Controllers\News\NewsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InfoController;
-use App\Http\Controllers\WelcomeController; 
-use App\Http\Controllers\NewsController;
 
-
-Route::get('/', function () {
- return view('welcome');
-}); 
  
 
-Route::get('info', InfoController::class);
+// For everyone
 
-Route::get('hello/{name}', [WelcomeController::class, 'show']);
+Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('auth', [AuthorizationController::class, 'index'])->name('authorization');
 
-Route::get('news', NewsController::class);
+// News 
+Route::get('categories', [NewsCategoryController::class, 'index'])->name('categories');
+Route::get('news/{category}', [NewsController::class, 'index'])->name('news.category')
+->where('category', '[1-5]+');
+Route::get('article/{category?}/{id?}', [NewsController::class, 'show'])->name('article');
+
+//  Admin 
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function(){
+    Route::get('article/create', [AdminArticleController::class, 'create'])->name('article.create');
+
+});
