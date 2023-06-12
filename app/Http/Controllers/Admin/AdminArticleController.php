@@ -9,12 +9,12 @@ class AdminArticleController extends Controller
 {
     public function show()
     {
-        return view('components.admin.createArticle');
+        return view('admin.createArticle');
     }
 
     public function create()
     {
-        return view('components.admin.createArticle');
+        return view('admin.createArticle');
     }
 
 }

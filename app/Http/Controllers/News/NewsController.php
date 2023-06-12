@@ -14,14 +14,14 @@ class NewsController extends Controller
         $news = $this->getCategory($category);
         $newsList =$this->getNews(null, $news);
 
-        return view('components.news.news', compact('news', 'newsList'));
+        return view('news.news', compact('news', 'newsList'));
     }
 
     public function show(string $category, int $id): View
     {
         $article = $this->getNews($id, $category);
 
-        return view('components.news.article', compact('article'));
+        return view('news.article', compact('article'));
     }
     
 }

@@ -9,6 +9,6 @@ class AuthorizationController extends Controller
 {
     public function index()
     {
-        return view('components.authorization');
+        return view('general.authorization');
     }
 }

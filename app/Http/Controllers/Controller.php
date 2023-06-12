@@ -10,18 +10,23 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    protected function getCategory(int $name) {
+    protected function getCategory(int $name = null) {
         
         $categories = [
-           1=> 'The main thing today',
-           2=>'Politics', 
-           3=>'Science',
-           4=>'Art',
-           5=>'Nature and climate',
+           1 =>'The main thing today',
+           2 =>'Politics', 
+           3 =>'Science',
+           4 =>'Art',
+           5 =>'Nature and climate',
+           6 =>'Economics',
+           7 => 'Showbiz',
         ];
 
-        
-           return $categories[$name];         
+        if ($name === null){
+            return $categories;
+        }else{
+            return $categories[$name];  
+        }             
         
     }
      
@@ -32,7 +37,7 @@ class Controller extends BaseController
 
         $news = [];
         if ($id === null) {
-          for ($i=0; $i < 10; $i++) {
+          for ($i=1; $i < 11; $i++) {
               $news[] = [
                 'category' => $category, 
                 'id' => $i,
@@ -50,7 +55,7 @@ class Controller extends BaseController
 
         return [
             'category' => $category, 
-            'id' => $id,
+            'id' => $id++,
             'title' => fake()->jobTitle(),
             'author' => fake()->userName(),
             'status' => 'draft',

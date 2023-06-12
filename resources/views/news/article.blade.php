@@ -1,4 +1,8 @@
-@extends('index')
+@extends('layouts.index')
+
+@section('page.title')
+    {{$article['title']}}
+@endsection
 
 @section('content')
 
@@ -13,6 +17,5 @@
 
 <div class="cotent">{{$article['text']}}</div>
 
-<button class="btn mt-4 btn-dark"><a class ="nav-link" href="<?= route('index');?>">Main</a></button>
      
 @endsection

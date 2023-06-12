@@ -9,6 +9,9 @@ class NewsCategoryController extends Controller
 {
     public function index()
     {
-        return view('components.news.categoyries');
+        $categories = $this->getCategory();        
+
+        return view('news.categoyries', compact('categories'));
     }
+
 }
