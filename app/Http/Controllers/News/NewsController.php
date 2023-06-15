@@ -17,7 +17,14 @@ class NewsController extends Controller
         return view('news.news', compact('news', 'newsList'));
     }
 
-    public function show(string $category, int $id): View
+    public function show()
+    {
+                $newsList =$this->getNews();
+
+        return view('news.newsShow', compact('newsList'));
+    }
+
+    public function showArticle(string $category, int $id): View
     {
         $article = $this->getNews($id, $category);
 

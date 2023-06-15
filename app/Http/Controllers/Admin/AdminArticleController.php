@@ -3,18 +3,26 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class AdminArticleController extends Controller
 {
-    public function show()
+   
+    public function create():View
     {
-        return view('admin.createArticle');
+        $categories = $this->getCategory();
+        
+        return view('admin.createArticle', compact('categories'));
     }
 
-    public function create()
-    {
-        return view('admin.createArticle');
+    public function store(Request $request)
+        {
+
+        $article= $request->only('title', 'category', 'text', 'author',);
+
+    // dd($article);
+       return view('news.article', compact('article'));
     }
 
 }

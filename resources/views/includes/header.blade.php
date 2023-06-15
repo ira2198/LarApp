@@ -19,9 +19,10 @@
         </div> 
 
         <div class="">      
-        <button class="btn btn-light" ><a class="navbar-brand" href="{{ route('categories') }}">News by category</a></button>
-        <button class="btn btn-light" ><a class="navbar-brand" href="{{ route('authorization') }}">Authorization</a></button>
-        <button class="btn btn-light" ><a class="navbar-brand" href="{{ route('admin.article.create') }}">Administration</a></button>
+        <button class="btn btn-light" ><a class="navbar-brand" style="font-size: medium" href="{{ route('categories') }}">News by category</a></button>
+        <button class="btn btn-light" ><a class="navbar-brand" style="font-size: medium" href="{{ route('authorization') }}">Authorization</a></button>
+        <button class="btn btn-light" ><a class="navbar-brand" style="font-size: medium" href="{{ route('admin.index') }}">Administration</a></button>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Navigation</button>
     </div>    
     </div>
 </nav>
