@@ -31,7 +31,7 @@ class Controller extends BaseController
     }
      
 
-    protected function getNews(int $id = null, string $category): array
+    protected function getNews(int $id = null, string $category = 'no'): array
     {
 
 
